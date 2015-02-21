@@ -61,7 +61,8 @@ group :development, :test do
   gem "capybara"
 
   # Headless testing
-  gem 'poltergeist'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
 
   # Database cleaner
   gem 'database_cleaner'
