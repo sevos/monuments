@@ -49,4 +49,10 @@ group :development, :test do
 
   # Rspec command for Spring
   gem "spring-commands-rspec"
+
+  # Full stack testing
+  gem "capybara"
+
+  # Headless testing
+  gem 'poltergeist'
 end
