@@ -1,0 +1,21 @@
+.container
+  %nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        = link_to t('navigation.name'), '#', class: 'navbar-brand'
+      %ul.nav.navbar-nav
+        %li= link_to 'home', root_path
+      %ul.nav.navbar-nav.navbar-right
+        - if current_user.present?
+          %li#user_info
+            %p= current_user.login
+          %li#logout_form
+            = link_to t('authentication.logout'), session_path, method: :delete
+        - else
+          %li#login_form
+            = form_tag session_path, method: :post, remote: true do |f|
+              = label_tag 'login', t('authentication.login_form.login')
+              = text_field_tag 'login'
+              = label_tag 'password', t('authentication.login_form.password')
+              = password_field_tag 'password'
+              = submit_tag t('authentication.login_form.submit')

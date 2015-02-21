@@ -1,0 +1,5 @@
+<% if @success %>
+location.reload();
+<% else %>
+alert('<%= t('login_form.invalid', default: 'Invalid login or password') %>')
+<% end %>
