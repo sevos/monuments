@@ -36,6 +36,9 @@ gem 'naught'
 # Multi-step form
 gem 'wicked'
 
+# Upload
+gem 'carrierwave'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
