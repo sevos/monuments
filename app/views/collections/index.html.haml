@@ -3,8 +3,24 @@
     .well.collection{id: "collection-#{collection.id}"}
       %h1.pull-left= collection.title
       .well.pull-right
-        = link_to t('collections.index.delete'), collection, remote: true, method: :delete, data: {confirm: t('collections.index.delete_confirm', title: collection.title)}
+        %ul.nav
+          %li= link_to t('collections.index.new_monument'), [collection, :monuments], method: :post
+          %li= link_to t('collections.index.delete'), collection, remote: true, method: :delete, data: {confirm: t('collections.index.delete_confirm', title: collection.title)}
       .clearfix
+      %table.table
+        %thead
+          %tr
+            %th= t('monuments.form.photo')
+            %th= t('monuments.form.name')
+            %th= t('monuments.form.description')
+            %th= t('monuments.actions')
+        %tbody
+          - collection.confirmed_monuments.each do |monument|
+            %tr
+              %td
+              %td= monument.name
+              %td= monument.description
+              %td
 
   .well#new-collection
     %h1= t('collections.index.new.header')

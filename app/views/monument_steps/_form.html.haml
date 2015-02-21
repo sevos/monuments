@@ -1,0 +1,11 @@
+.container
+  .well
+    %h1= t('monuments.form.header', step: t("monuments.form.step.#{step}"))
+    = form_for monument, url: wizard_path, method: :put do |f|
+      - if monument.errors.full_messages.any?
+        - monument.errors.full_messages.each do |message|
+          %p.bg-danger= message
+      = yield f
+      = f.submit t('monuments.form.continue')
+      - if @has_previous_step
+        = link_to t('monuments.form.back'), previous_wizard_path

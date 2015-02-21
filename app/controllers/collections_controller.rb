@@ -11,7 +11,7 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    @collection = collections.find(params[:id])
+    @collection = collections.where(id: params[:id]).first!
     @collection.destroy
   end
 

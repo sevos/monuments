@@ -25,7 +25,7 @@ feature "Collections", js: true do
   end
 
   scenario "User removes a collection" do
-    collection = Collection.create!(user: @user, title: 'Summer 2015')
+    collection = Collection.create!(user_id: @user.id, title: 'Summer 2015')
 
     login 'sevos', 'qwerty'
 
