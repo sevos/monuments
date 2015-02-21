@@ -8,3 +8,4 @@ en:
     logout: 'Logout'
   navigation:
     name: 'Monuments'
+    manage_users: 'Manage users'

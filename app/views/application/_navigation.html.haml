@@ -1,10 +1,12 @@
 .container
-  %nav.navbar.navbar-default
+  %nav.navbar.navbar-default#navigation
     .container-fluid
       .navbar-header
         = link_to t('navigation.name'), '#', class: 'navbar-brand'
       %ul.nav.navbar-nav
         %li= link_to 'home', root_path
+        - if current_user.admin?
+          %li= link_to t('navigation.manage_users'), '#'
       %ul.nav.navbar-nav.navbar-right
         - if current_user.present?
           %li#user_info
