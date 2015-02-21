@@ -1,0 +1,19 @@
+<% if @success %>
+  location.reload();
+<% else %>
+  var errors = $('#new-collection .errors');
+  errors.html('');
+
+  <% @collection.errors.full_messages.each do |message| %>
+    errors.append('<p class="bg-danger"><%= message %></p>');
+  <% end %>
+
+  setTimeout(function() {
+    errors.slideUp({
+      complete: function() {
+        errors.html('');
+        errors.show();
+      }
+    });
+  }, 3000);
+<% end %>

@@ -9,6 +9,7 @@ en:
   navigation:
     name: 'Monuments'
     manage_users: 'Manage users'
+    my_collections: 'My collections'
   users:
     index:
       create_user: 'Create user'
@@ -21,3 +22,11 @@ en:
       password: 'Password'
       password_confirmation: 'Password confirmation'
       submit: 'Create user'
+  collections:
+    index:
+      new:
+        header: 'New collection'
+        title: 'Title'
+        submit: 'Create'
+      delete: 'Delete'
+      delete_confirm: 'Are you sure, you want to delete "%{title}" collection?'

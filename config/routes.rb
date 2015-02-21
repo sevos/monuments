@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resource :session
-  resources :users
+  resource :session, only: %i(create destroy)
+  resources :users, only: %i(index new create destroy)
+  resources :collections
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

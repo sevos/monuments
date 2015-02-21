@@ -1,0 +1,16 @@
+.container
+  - @collections.each do |collection|
+    .well.collection{id: "collection-#{collection.id}"}
+      %h1.pull-left= collection.title
+      .well.pull-right
+        = link_to t('collections.index.delete'), collection, remote: true, method: :delete, data: {confirm: t('collections.index.delete_confirm', title: collection.title)}
+      .clearfix
+
+  .well#new-collection
+    %h1= t('collections.index.new.header')
+    = form_for Collection.new, remote: true do |f|
+      .errors
+      .form-group
+        = f.label :title, t('collections.index.new.title')
+        = f.text_field :title, class: 'form-control'
+      = f.submit t('collections.index.new.submit')
