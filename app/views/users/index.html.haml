@@ -1,0 +1,17 @@
+.container
+  .well
+    = link_to t('users.index.create_user'), new_user_path
+
+  %table.table
+    %thead
+      %tr
+        %td= t('users.index.login')
+        %td= t('users.index.created_at')
+        %td= t('users.index.actions')
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.login
+          %td=l user.created_at
+          %td
+            = link_to t('users.index.delete'), user, method: :delete, data: {confirm: 'Are you sure?'}

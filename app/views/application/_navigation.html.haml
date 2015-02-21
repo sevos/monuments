@@ -6,7 +6,7 @@
       %ul.nav.navbar-nav
         %li= link_to 'home', root_path
         - if current_user.admin?
-          %li= link_to t('navigation.manage_users'), '#'
+          %li= link_to t('navigation.manage_users'), users_path
       %ul.nav.navbar-nav.navbar-right
         - if current_user.present?
           %li#user_info

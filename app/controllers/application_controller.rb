@@ -24,4 +24,19 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def require_admin
+    unless current_user.admin?
+      respond_to do |format|
+        format.html do
+          flash[:error] = I18n.t('authentication.admin_required')
+          redirect_to root_path
+        end
+
+        format.js do
+          render 'authentication_required'
+        end
+      end
+    end
+  end
 end
