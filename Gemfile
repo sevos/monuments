@@ -38,6 +38,11 @@ gem 'wicked'
 
 # Upload
 gem 'carrierwave'
+gem 'fog', require: 'fog/aws/storage'
+gem 'carrierwave_direct'
+
+# Loads environment variables from .env file
+gem 'dotenv'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
