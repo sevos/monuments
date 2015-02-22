@@ -9,6 +9,7 @@
           %li= link_to t('navigation.my_collections'), collections_path
         - if current_user.admin?
           %li= link_to t('navigation.manage_users'), users_path
+          %li= link_to t('navigation.review_photos'), review_photos_path
       %ul.nav.navbar-nav.navbar-right
         - if current_user.present?
           %li#user_info

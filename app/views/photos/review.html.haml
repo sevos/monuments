@@ -1,0 +1,10 @@
+.container
+  %h1 Photo review
+  - if @photo.present?
+    .well
+      = image_tag(@photo.image_url)
+
+      = button_to 'Approve', [@photo, :approve], method: :post
+      = button_to 'Reject', [@photo, :reject], method: :post
+  - else
+    %p No photos to review

@@ -16,6 +16,17 @@
             .form-group
               = p.label :description
               = p.text_area :description, class: 'form-control'
+            .form-group.checkbox
+              %label
+                = p.check_box :published
+                Published
+            - if photo.approved?
+              %p.text-success Approved
+            - else
+              - if photo.approved.nil?
+                %p.text-warning Waiting for review. Photo must be published to be reviewed
+              - else
+                %p.text-danger Rejected
         %td
           %ul.nav
             %li= link_to 'Delete', [monument.collection, monument, photo], method: :delete, remote: true, data: {confirm: 'Are you sure?'}

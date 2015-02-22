@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :require_user
-  before_action :require_own_monument
+  before_action :require_own_monument, only: %i(create destroy)
+  before_action :require_admin, only: %i(review approve reject)
 
   def create
     photo = monument.photos.build(key: params[:key])
@@ -19,6 +20,22 @@ class PhotosController < ApplicationController
       format.js
       format.html { redirect_to :back }
     end
+  end
+
+  def review
+    @photo = Photo.to_review.first
+  end
+
+  def approve
+    photo = Photo.find(params[:photo_id])
+    photo.approve!
+    redirect_to :back
+  end
+
+  def reject
+    photo = Photo.find(params[:photo_id])
+    photo.reject!
+    redirect_to :back
   end
 
   private

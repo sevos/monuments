@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resource :session, only: %i(create destroy)
   resources :users, only: %i(index new create destroy)
+  resources :photos, only: [] do
+    post :approve
+    post :reject
+    get :review, on: :collection
+  end
   resources :collections do
     resources :monuments, only: %i(create edit update) do
       resources :photos, only: %(destroy) do

@@ -37,6 +37,8 @@ class MonumentsController < ApplicationController
 
   def monument_params
     params.require(:monument).permit(:name, :description,
-                                     photos_attributes: [:id, :title, :description])
+                                     photos_attributes: [:id, :title,
+                                                         :published,
+                                                         :description])
   end
 end
