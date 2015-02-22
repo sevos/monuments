@@ -7,14 +7,12 @@ class MonumentStepsController < ApplicationController
   steps :name_and_description, :photos, :confirmed
 
   def show
-    @has_previous_step = previous_step != step
-    @photo = Photo.new
-    @photo_uploader = @photo.image
-    @photo_uploader.success_action_redirect = create_collection_monument_photos_url(collection, monument, r: request.url)
+    initialize_variables
     render_wizard
   end
 
   def update
+    initialize_variables
     params[:monument] = {} unless params[:monument].present?
     params[:monument][:state] = step.to_s
     monument.update_attributes(monument_params)
@@ -22,6 +20,13 @@ class MonumentStepsController < ApplicationController
   end
 
   private
+
+  def initialize_variables
+    @has_previous_step = previous_step != step
+    @photo = Photo.new
+    @photo_uploader = @photo.image
+    @photo_uploader.success_action_redirect = create_collection_monument_photos_url(collection, monument, r: request.url)
+  end
 
   def monument
     @monument ||= collection.monuments.find(params[:monument_id])
