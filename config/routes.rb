@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :users, only: %i(index new create destroy)
   resources :collections do
     resources :monuments, only: %i(create) do
+      resources :photos, only: [] do
+        collection do
+          get '/create' => 'photos#create', as: :create
+        end
+      end
       resources :monument_steps
     end
   end

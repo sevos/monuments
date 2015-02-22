@@ -39,7 +39,7 @@ gem 'wicked'
 # Upload
 gem 'carrierwave'
 gem 'fog', require: 'fog/aws/storage'
-gem 'carrierwave_direct'
+gem 'carrierwave_direct', github: 'sevos/carrierwave_direct', branch: 'patch-1'
 
 # Loads environment variables from .env file
 gem 'dotenv'

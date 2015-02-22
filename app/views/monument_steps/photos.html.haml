@@ -1,0 +1,15 @@
+- content_for :beyond_form do
+
+
+
+  = direct_upload_form_for @photo_uploader do |upf|
+    = upf.file_field :image
+    = upf.submit
+= render layout: 'form' do |f|
+  %table.table
+    - monument.photos.each do |photo|
+      %tr
+        %td= image_tag(photo.image_url, class: 'thumbnail')
+        %td
+          = f.fields_for :photos, photo do |p|
+            = p.text_field :title

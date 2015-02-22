@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/sevos/carrierwave_direct.git
+  revision: 6bc36d6b53686b1a5c8087b264e9bba14b97bc82
+  branch: patch-1
+  specs:
+    carrierwave_direct (0.0.14)
+      carrierwave
+      fog
+      uuidtools
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -66,10 +76,6 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    carrierwave_direct (0.0.14)
-      carrierwave
-      fog
-      uuidtools
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.1.0)
@@ -310,7 +316,7 @@ DEPENDENCIES
   capybara
   capybara-webkit
   carrierwave
-  carrierwave_direct
+  carrierwave_direct!
   coffee-rails (~> 4.1.0)
   database_cleaner
   dotenv

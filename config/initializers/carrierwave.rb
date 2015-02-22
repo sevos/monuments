@@ -8,4 +8,5 @@ CarrierWave.configure do |config|
   config.fog_directory  = ENV.fetch('AWS_FOG_DIRECTORY') # required
   # see https://github.com/jnicklas/carrierwave#using-amazon-s3
   # for more optional configuration
+  config.enable_processing = false if Rails.env.test?
 end

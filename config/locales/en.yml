@@ -36,6 +36,7 @@ en:
       header: 'New monument / %{step}'
       step:
         name_and_description: 'Details'
+        photos: 'Upload photos'
         confirmed: 'Confirm'
       name: 'Name'
       description: 'Description'

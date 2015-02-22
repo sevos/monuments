@@ -1,7 +1,8 @@
 .container
   .well
     %h1= t('monuments.form.header', step: t("monuments.form.step.#{step}"))
-    = form_for monument, url: wizard_path, method: :put do |f|
+    = yield :beyond_form
+    = form_for monument, url: wizard_path, method: :put, multipart: true do |f|
       - if monument.errors.full_messages.any?
         - monument.errors.full_messages.each do |message|
           %p.bg-danger= message
