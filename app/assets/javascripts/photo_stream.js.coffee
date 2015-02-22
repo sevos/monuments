@@ -1,5 +1,4 @@
 $ ->
-  alert('ready')
   $('#photo-stream').coverflow
     easing:     'easeOutElastic',
     duration:   'slow',
