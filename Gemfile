@@ -49,7 +49,8 @@ gem 'dotenv'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
+# Heroku
+gem 'rails_12factor'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
