@@ -1,0 +1,6 @@
+.container
+  #photo-stream
+    - @photos.each do |photo|
+      .photo-in-stream.cover
+        = image_tag photo.image_url
+  .clearfix

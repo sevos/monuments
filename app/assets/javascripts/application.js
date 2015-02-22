@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require reflection
+//= require jquery.mousewheel
+//= require jquery.interpolate
+//= require jquery.touchSwipe.min
+//= require jquery.coverflow
 //= require_tree .

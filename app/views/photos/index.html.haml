@@ -1,0 +1,17 @@
+.container
+  %table.table
+    %thead
+      %tr
+        %th Photo
+        %th Description
+        %th Monument
+    %tbody
+      - @photos.each do |photo|
+        %tr
+          %td.thumbnail= image_tag photo.image_url
+          %td
+            %h4= photo.title
+            %p= photo.description
+          %td
+            %h4= photo.monument.name
+            %h4= photo.monument.description

@@ -7,6 +7,10 @@ class Photo < ActiveRecord::Base
     where(approved: nil, published: true)
   }
 
+  scope :stream, -> {
+    where(approved: true, published: true)
+  }
+
   def image_uploader(controller)
     image.tap do |uploader|
       current_url = controller.request.url
