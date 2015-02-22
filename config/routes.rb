@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resource :session, only: %i(create destroy)
   resources :users, only: %i(index new create destroy)
   resources :collections do
-    resources :monuments, only: %i(create) do
+    resources :monuments, only: %i(create edit update) do
       resources :photos, only: %(destroy) do
         collection do
           get '/create' => 'photos#create', as: :create

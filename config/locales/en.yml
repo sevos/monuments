@@ -32,6 +32,9 @@ en:
       delete_confirm: 'Are you sure, you want to delete "%{title}" collection?'
       new_monument: 'New monument'
   monuments:
+    edit:
+      header: 'Edit monument'
+      submit: 'Save'
     form:
       header: 'New monument / %{step}'
       step:
@@ -41,3 +44,4 @@ en:
       name: 'Name'
       description: 'Description'
       continue: 'Continue'
+  photos:

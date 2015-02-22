@@ -1,7 +1,2 @@
 = render layout: 'form' do |f|
-  .form-group
-    = f.label :name, t('monuments.form.name')
-    = f.text_field :name, class: 'form-control'
-  .form-group
-    = f.label :description, t('monuments.form.description')
-    = f.text_area :description, class: 'form-control'
+  = render 'monument_steps/fields/name_and_description', f: f

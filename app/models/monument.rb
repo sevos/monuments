@@ -14,7 +14,6 @@ class Monument < ActiveRecord::Base
             if: in_state('name_and_description')
   validate :at_least_one_photo, if: in_state('photos')
 
-
   scope :confirmed, -> { where(state: 'confirmed') }
   accepts_nested_attributes_for :photos, allow_destroy: true
 

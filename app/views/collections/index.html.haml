@@ -21,6 +21,8 @@
               %td= monument.name
               %td= monument.description
               %td
+                %ul.nav
+                  %li= link_to t('monuments.edit_link'), [:edit, collection, monument]
 
   .well#new-collection
     %h1= t('collections.index.new.header')

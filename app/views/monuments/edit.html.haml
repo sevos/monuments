@@ -1,0 +1,15 @@
+.container
+  .well
+    %h1= t('monuments.edit.header')
+    = form_for [monument.collection, monument] do |f|
+      - if monument.errors.full_messages.any?
+        - monument.errors.full_messages.each do |message|
+          %p.bg-danger= message
+      = render 'monument_steps/fields/name_and_description', f: f
+      = render 'monument_steps/fields/photos', f: f
+      = f.submit t('monuments.edit.submit')
+
+  .well
+    = direct_upload_form_for monument.photos.build.image_uploader(self) do |upf|
+      = upf.file_field :image
+      = upf.submit

@@ -23,9 +23,6 @@ class MonumentStepsController < ApplicationController
 
   def initialize_variables
     @has_previous_step = previous_step != step
-    @photo = Photo.new
-    @photo_uploader = @photo.image
-    @photo_uploader.success_action_redirect = create_collection_monument_photos_url(collection, monument, r: request.url)
   end
 
   def monument
