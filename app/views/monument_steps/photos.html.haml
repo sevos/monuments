@@ -7,9 +7,23 @@
     = upf.submit
 = render layout: 'form' do |f|
   %table.table
-    - monument.photos.each do |photo|
+    %thead
       %tr
-        %td= image_tag(photo.image_url, class: 'thumbnail')
-        %td
-          = f.fields_for :photos, photo do |p|
-            = p.text_field :title
+        %th Preview
+        %th Details
+        %th Actions
+    %tbody
+      - monument.photos.each do |photo|
+        %tr.photo{id: "photo-#{photo.id}"}
+          %td.thumbnail{width: '200px'}= image_tag(photo.image_url)
+          %td
+            = f.fields_for :photos, photo do |p|
+              .form-group
+                = p.label :title
+                = p.text_field :title, class: 'form-control'
+              .form-group
+                = p.label :description
+                = p.text_area :description, class: 'form-control'
+          %td
+            %ul.nav
+              %li= link_to 'Delete', [monument.collection, monument, photo], method: :delete, remote: true, data: {confirm: 'Are you sure?'}

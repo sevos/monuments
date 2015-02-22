@@ -32,13 +32,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a pharetra mauris.
 
 Vivamus cursus nulla tellus. Aliquam ultrices dignissim neque vel accumsan. Sed volutpat porttitor sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque posuere nibh nec enim scelerisque, at porta ligula volutpat. Proin auctor tincidunt consequat. Nunc sed augue id lacus mollis porta quis at turpis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque est tellus, luctus eget mollis eget, rutrum at justo. Morbi at urna vestibulum, placerat tortor in, aliquam est. Nam vulputate turpis nulla. Morbi a tempor ante.
     TEXT
-
     click_button 'Continue'
 
     page.driver.block_unknown_urls
     attach_file_for_direct_upload(Rails.root.join('spec', 'fixtures', 'example.jpg'))
     upload_directly(PhotoUploader.new, "Create Photo upload")
-
+    attach_file_for_direct_upload(Rails.root.join('spec', 'fixtures', 'example.jpg'))
+    upload_directly(PhotoUploader.new, "Create Photo upload")
+    page.driver.browser.accept_js_confirms
+    all('a', text: 'Delete').last.click
+    wait_for_ajax
+    expect(page).to have_selector('.photo', count: 1)
     click_button 'Continue'
 
     expect(page).to have_content('Siegessaeule')

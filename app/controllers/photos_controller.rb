@@ -12,6 +12,15 @@ class PhotosController < ApplicationController
     end
   end
 
+  def destroy
+    @photo = monument.photos.find(params[:id])
+    @photo.destroy
+    respond_to do |format|
+      format.js
+      format.html { redirect_to :back }
+    end
+  end
+
   private
 
   def monument

@@ -1,0 +1,6 @@
+var photo = $('#photo-<%= @photo.id %>');
+photo.slideUp({
+  complete: function() {
+    photo.remove();
+  }
+});

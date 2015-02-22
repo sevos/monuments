@@ -40,7 +40,7 @@ class MonumentStepsController < ApplicationController
   def monument_params
     params.require(:monument).
       permit(:name, :description, :state,
-             photos_attributes: [:id, :title, :name, :_destroy])
+             photos_attributes: [:id, :title, :description, :_destroy])
   end
 
   def finish_wizard_path
