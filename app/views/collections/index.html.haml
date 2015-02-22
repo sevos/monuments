@@ -17,7 +17,7 @@
         %tbody
           - collection.confirmed_monuments.each do |monument|
             %tr
-              %td
+              %td.thumbnail= image_tag(monument.photos.first.image_url)
               %td= monument.name
               %td= monument.description
               %td
