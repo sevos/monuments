@@ -35,7 +35,7 @@ Vivamus cursus nulla tellus. Aliquam ultrices dignissim neque vel accumsan. Sed 
 
     click_button 'Continue'
 
-    page.driver.allow_url("sevos-monuments.s3.amazonaws.com")
+    page.driver.block_unknown_urls
     attach_file_for_direct_upload(Rails.root.join('spec', 'fixtures', 'example.jpg'))
     upload_directly(PhotoUploader.new, "Create Photo upload")
 
